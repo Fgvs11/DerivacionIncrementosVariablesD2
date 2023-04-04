@@ -2,6 +2,8 @@
 // Importacion de Scanner
 import java.util.Scanner;
 
+import javax.swing.JTable.PrintMode;
+
 public class DerivacionIV {
     Scanner leer = new Scanner(System.in);
     private double[] filaX;
@@ -23,7 +25,30 @@ public class DerivacionIV {
         return part1 + part2 + part3;
     }
 
-
+    public int buscarIndice(double x){
+        int index = -1;
+        for (int i = 0; i < filaX.length - 1; i++) {
+            if(filaX[i] <= x && filaX[i+1] >= x){
+                index = i;
+                break;
+            }
+        }
+        if(index != -1){
+            if((index + 1) == filaX.length -1){
+                index--;
+            }
+        }
+        return index;
+    }
+    public double derivar(Double x){
+        int index = buscarIndice(x);
+        if(index == -1){
+            System.out.println("Error, No se encontraron valores indicados para la derivada de " + x);
+            return index;
+        }
+        System.out.println(index);
+        return f(x,filaX[index],filaX[index + 1],filaX[index + 2],filaY[index],filaY[index + 1],filaY[index + 2]);
+    }
     /*
      * Metodo llenado FilaX
      */
@@ -151,6 +176,9 @@ public class DerivacionIV {
                 System.out.printf("%-8.8s | ", filaY[x]);
             }
         }
-
+        System.out.println();
+        for (int i = 0; i < filaY.length * 12; i++) {
+            System.out.print("-");
+        }
     }
 }

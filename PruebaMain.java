@@ -11,7 +11,7 @@ public class PruebaMain {
 		Scanner leer = new Scanner(System.in);
 		int cant;
 		DerivacionIV d;
-
+		System.out.println("INGRESAR DATOS ORDENADAMENTE, LA CALCULADORA NO LOS ORDENA AUTOMATICAMENTE.");
 		/**
 		 * Ejecucion del programa
 		 */
@@ -22,12 +22,19 @@ public class PruebaMain {
 				d = new DerivacionIV(cant);
 				d.llenadoX();
 				d.llenadoY();
-				d.tablaRegistrada();
 				break;
 			} else {
-				System.out.print("Se necesitan 4 o mas datos en la tabla: ");
+				System.out.print("Se necesitan 3 o mas datos en la tabla: ");
 				cant = leer.nextInt();
 			}
 		} while (true);
+		
+		do {
+			d.tablaRegistrada();
+			System.out.print("\nIngrese el valor de x para encontrar la derivada: ");
+			System.out.printf("El resultado es: %f",d.derivar(leer.nextDouble()));
+			System.out.print("\nDesea encontrar otra derivada? [1]Si [Cualquier otro numero]No: ");
+			cant = leer.nextInt();
+		} while (cant == 1);
 	}
 }
