@@ -1,5 +1,2 @@
 # DerivacionIncrementosVariablesD2
-Desarrollar un programa que calcule la primera derivada en algún punto intermedio para un grupo de datos desigualmente espaciados.
-Datos de entrada:
-- tabla de datos
-- Punto donde se requiere la derivada
+Develop a program that calculates the first derivative at an intermediate point for a set of unequally spaced data. Input data includes:
